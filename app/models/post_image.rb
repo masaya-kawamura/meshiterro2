@@ -5,6 +5,10 @@ class PostImage < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  # 投稿画像とショップ名必須入力のバリデーション
+  validates :shop_name, presence: true
+  validates :image, presence: true
+
   # favoritesにログインユーザが存在する？
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

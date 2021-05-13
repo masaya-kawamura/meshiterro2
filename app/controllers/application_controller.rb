@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  #ログインしていないユーザーはログイン画面へ遷移させる
+  before_action :authenticate_user!, except: [:top]
   # ifの後に：を付けないとerrorになる
   before_action :configure_permitted_parameters, if: :devise_controller?
 
