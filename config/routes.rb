@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'homes#top'
+  root to: 'post_images#index'
   devise_for :users
 
   #画像投稿に紐つけて、コメントをネストする
